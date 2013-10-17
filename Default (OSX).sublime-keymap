@@ -1,0 +1,4 @@
+[
+	{ "keys": ["super+\\"], "command": "vcs_web", "args" : { "permalink": false }},
+	{ "keys": ["shift+super+\\"], "command": "vcs_web", "args" : { "permalink": true }}
+]

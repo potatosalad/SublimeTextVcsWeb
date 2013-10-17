@@ -1,0 +1,33 @@
+{
+	"vcs_hosts": {
+		"bitbucket.org": {
+			"oneline": "#cl-%(line_begin)s",
+			"multiline": "#cl-%(line_begin)s",
+			"link": "https://bitbucket.org/%(path)s/src/%(branch)s/%(file)s",
+			"permalink": "https://bitbucket.org/%(path)s/src/%(revision)s/%(file)s",
+			"blame": "https://bitbucket.org/%(path)s/annotate/%(branch)s/%(file)s",
+			"blame_permalink": "https://bitbucket.org/%(path)s/annotate/%(revision)s/%(file)s",
+			"history": "https://bitbucket.org/%(path)s/history-node/%(branch)s/%(file)s",
+			"history_permalink": "https://bitbucket.org/%(path)s/history-node/%(revision)s/%(file)s"
+		},
+		"github.com": {
+			"oneline": "#L%(line_begin)s",
+			"multiline": "#L%(line_begin)s-L%(line_end)s",
+			"link": "https://github.com/%(path)s/blob/%(branch)s/%(file)s",
+			"permalink": "https://github.com/%(path)s/blob/%(revision)s/%(file)s",
+			"blame": "https://github.com/%(path)s/blame/%(branch)s/%(file)s",
+			"blame_permalink": "https://github.com/%(path)s/blame/%(revision)s/%(file)s",
+			"history": "https://github.com/%(path)s/commits/%(branch)s/%(file)s",
+			"history_permalink": "https://github.com/%(path)s/commits/%(revision)s/%(file)s"
+		}
+	},
+	// Paths to VCS commands. Modify if the executable is not in your path.
+	//
+	// Format is key: path_to_executable
+	// e.g. "git": "/usr/bin/git" or "git": "C:\bin\git.exe"
+	"vcs_paths": {
+		"git": "git",
+		"hg": "hg",
+		"svn": "svn"
+	}
+}

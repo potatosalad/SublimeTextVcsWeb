@@ -1,0 +1,32 @@
+[
+	{
+		"caption": "VCS Web",
+		"command": "vcs_web",
+		"args": { "permalink": false }
+	},
+	{
+		"caption": "VCS Web: Permalink",
+		"command": "vcs_web",
+		"args": { "permalink": true }
+	},
+	{
+		"caption": "VCS Web: Blame",
+		"command": "vcs_web",
+		"args": { "permalink": false, "mode": "blame" }
+	},
+	{
+		"caption": "VCS Web: Blame Permalink",
+		"command": "vcs_web",
+		"args": { "permalink": true, "mode": "blame" }
+	},
+	{
+		"caption": "VCS Web: History",
+		"command": "vcs_web",
+		"args": { "permalink": false, "mode": "history" }
+	},
+	{
+		"caption": "VCS Web: History Permalink",
+		"command": "vcs_web",
+		"args": { "permalink": true, "mode": "history" }
+	}
+]

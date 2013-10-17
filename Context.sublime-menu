@@ -1,0 +1,6 @@
+[
+	{ "command": "vcs_web", "caption": "VCS Web", "args": { "permalink": false } },
+	{ "command": "vcs_web", "caption": "VCS Web: Permalink", "args": { "permalink": true } },
+	{ "command": "vcs_web", "caption": "VCS Web: Blame", "args": { "permalink": false, "mode": "blame" } },
+	{ "command": "vcs_web", "caption": "VCS Web: Blame Permalink", "args": { "permalink": true, "mode": "blame" } }
+]
