@@ -7,7 +7,10 @@ import sublime
 import subprocess
 import re
 
-from .VcsHelper import GitHelper, HgHelper, SvnHelper
+try:
+	from .VcsHelper import GitHelper, HgHelper, SvnHelper
+except ValueError:
+	from VcsHelper import GitHelper, HgHelper, SvnHelper
 
 class VcsHandler(object):
 	def __init__(self, view, exc_path):

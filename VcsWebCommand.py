@@ -5,8 +5,15 @@ import os
 import sublime
 import sublime_plugin
 
-from .VcsHelper import GitHelper, HgHelper, SvnHelper
-from .VcsHandler import GitHandler, HgHandler, SvnHandler
+try:
+	from .VcsHelper import GitHelper, HgHelper, SvnHelper
+except ValueError:
+	from VcsHelper import GitHelper, HgHelper, SvnHelper
+
+try:
+	from .VcsHandler import GitHandler, HgHandler, SvnHandler
+except ValueError:
+	from VcsHandler import GitHandler, HgHandler, SvnHandler
 
 class VcsWebCommand(sublime_plugin.TextCommand):
 	def run(self, edit, permalink = False, mode = 'blob'):

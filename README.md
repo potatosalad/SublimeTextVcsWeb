@@ -2,18 +2,25 @@
 
 Generates links to remote web services for [git](http://git-scm.com/), [hg](http://mercurial.selenic.com/), and [svn](http://subversion.apache.org/).
 
-**NOTE:** The plugin has only been tested on Sublime Text 3.
+**NOTE:** The plugin has been tested on Sublime Text 2 and 3.
 
 ## Installation
 
-Clone this repo to your Sublime Text 2 Packages folder:
+After installation, the plugin should be picked up automatically.  If not, restart Sublime Text.
+
+#### Sublime Text 2
+
+```bash
+cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
+git clone git://github.com/potatosalad/SublimeTextVcsWeb.git "VCS Web"
+```
+
+#### Sublime Text 3
 
 ```bash
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
-git clone git://github.com/potatosalad/SublimeTextVcsWeb.git VcsWeb
+git clone git://github.com/potatosalad/SublimeTextVcsWeb.git "VCS Web"
 ```
-
-The plugin should be picked up automatically.  If not, restart Sublime Text.
 
 ## Configuration
 
