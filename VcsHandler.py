@@ -57,6 +57,7 @@ class VcsHandler(object):
 			return False
 		context.update(match.groupdict())
 		context['file'] = self.vcs_path
+		context['file_basename'] = os.path.basename(self.vcs_path)
 		return context
 
 	def revision(self, context = {}):

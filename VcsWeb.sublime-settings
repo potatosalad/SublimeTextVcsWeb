@@ -1,8 +1,8 @@
 {
 	"vcs_hosts": {
 		"bitbucket.org": {
-			"oneline": "#cl-%(line_begin)s",
-			"multiline": "#cl-%(line_begin)s",
+			"oneline": "#%(file_basename)s-%(line_begin)s",
+			"multiline": "#%(file_basename)s-%(line_begin)s",
 			"link": "https://bitbucket.org/%(path)s/src/%(branch)s/%(file)s",
 			"permalink": "https://bitbucket.org/%(path)s/src/%(revision)s/%(file)s",
 			"blame": "https://bitbucket.org/%(path)s/annotate/%(branch)s/%(file)s",
