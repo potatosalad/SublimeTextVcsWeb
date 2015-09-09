@@ -30,8 +30,10 @@ By default [bitbucket.org](http://bitbucket.org) and [github.com](http://github.
 {
 	"vcs_hosts": {
 		"bitbucket.org": {
-			"oneline": "#cl-%(line_begin)s",
-			"multiline": "#cl-%(line_begin)s",
+			"oneline-prefix": "#%(file_basename)s-",
+			"oneline": "%(line_begin)s",
+			"multiline-prefix": "#%(file_basename)s-",
+			"multiline": "%(line_begin)s:%(line_end)s",
 			"link": "https://bitbucket.org/%(path)s/src/%(branch)s/%(file)s",
 			"permalink": "https://bitbucket.org/%(path)s/src/%(revision)s/%(file)s",
 			"blame": "https://bitbucket.org/%(path)s/annotate/%(branch)s/%(file)s",
@@ -40,8 +42,10 @@ By default [bitbucket.org](http://bitbucket.org) and [github.com](http://github.
 			"history_permalink": "https://bitbucket.org/%(path)s/history-node/%(revision)s/%(file)s"
 		},
 		"github.com": {
-			"oneline": "#L%(line_begin)s",
-			"multiline": "#L%(line_begin)s-L%(line_end)s",
+			"oneline-prefix": "#",
+			"oneline": "L%(line_begin)s",
+			"multiline-prefix": "#",
+			"multiline": "L%(line_begin)s-L%(line_end)s",
 			"link": "https://github.com/%(path)s/blob/%(branch)s/%(file)s",
 			"permalink": "https://github.com/%(path)s/blob/%(revision)s/%(file)s",
 			"blame": "https://github.com/%(path)s/blame/%(branch)s/%(file)s",

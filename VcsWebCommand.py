@@ -54,12 +54,8 @@ class VcsWebCommand(sublime_plugin.TextCommand):
 		# file on disk (e.g. not yet saved) or the file is not in a supported
 		# VCS repository.
 		if handler is not None:
-			selection = self.view.sel()[0]
-			line_begin = self.view.rowcol(selection.begin())[0] + 1
-			line_end = self.view.rowcol(selection.end())[0] + 1
-			if line_begin == line_end:
-				line_end = None
-			context = {'line_begin': line_begin, 'line_end': line_end}
+			selections = self.view.sel()
+			context = {}
 			context = handler.remote(context)
 			context = handler.branch(context)
 			context = handler.revision(context)
@@ -85,12 +81,49 @@ class VcsWebCommand(sublime_plugin.TextCommand):
 					print('Vcs Web: Unknown mode: %s' % mode)
 				template = host[tkey]
 				if mode != 'history':
-					if context['line_end'] is not None:
-						if 'multiline' in host:
-							template = template + host['multiline']
+					if len(selections) == 1:
+						selection = selections[0]
+						line_begin = self.view.rowcol(selection.begin())[0] + 1
+						line_end = self.view.rowcol(selection.end())[0] + 1
+						if line_begin == line_end:
+							line_end = None
+						context['line_begin'] = line_begin
+						context['line_end'] = line_end
+						if context['line_end'] is not None:
+							if 'multiline-prefix' in host:
+								template = template + host['multiline-prefix']
+							if 'multiline' in host:
+								template = template + host['multiline']
+						else:
+							if 'oneline-prefix' in host:
+								template = template + host['oneline-prefix']
+							if 'oneline' in host:
+								template = template + host['oneline']
 					else:
-						if 'oneline' in host:
-							template = template + host['oneline']
+						tail_template = ""
+						if 'multiline-prefix' in host:
+							tail_template = tail_template + host['multiline-prefix']
+						index = 0
+						for selection in selections:
+							if index == 0:
+								tail_template = tail_template % (context)
+							else:
+								tail_template = tail_template + ","
+							index = index + 1
+							line_begin = self.view.rowcol(selection.begin())[0] + 1
+							line_end = self.view.rowcol(selection.end())[0] + 1
+							if line_begin == line_end:
+								line_end = None
+							context['line_begin'] = line_begin
+							context['line_end'] = line_end
+							if context['line_end'] is not None:
+								if 'multiline' in host:
+									tail_template = tail_template + host['multiline']
+							else:
+								if 'oneline' in host:
+									tail_template = tail_template + host['oneline']
+							tail_template = tail_template % (context)
+						template = template + tail_template
 				full_link = template % (context)
 				sublime.set_clipboard(full_link)
 				sublime.status_message('Copied %s to clipboard.' % full_link)
